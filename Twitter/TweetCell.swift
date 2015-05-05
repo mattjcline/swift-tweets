@@ -27,9 +27,9 @@ class TweetCell: UITableViewCell {
                 self.fullNameLabel.text = user.name
                 self.usernameLabel.text = "@\(user.screenname!)"
                 self.profileImageView.setImageWithURL(NSURL(string: user.profileImageUrl!))
-                self.replyImageView.image = UIImage(named: "reply")
-                self.favoriteImageView.image = UIImage(named: "favorite")
-                self.retweetImageView.image = UIImage(named: "retweet")
+                self.replyImageView.image = TweetDetailViewController.replyIcon
+                self.favoriteImageView.image = TweetDetailViewController.favoriteIcon
+                self.retweetImageView.image = TweetDetailViewController.retweetIcon
             }
         }
     }

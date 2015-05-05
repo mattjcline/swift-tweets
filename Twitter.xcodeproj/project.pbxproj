@@ -122,13 +122,13 @@
 				BC3246BF1AF45B6400CC72BA /* AppDelegate.swift */,
 				BC3246C11AF45B6400CC72BA /* ViewController.swift */,
 				BC3246EB1AF6E82000CC72BA /* TweetsViewController.swift */,
+				BC3246F11AF74F2200CC72BA /* TweetDetailViewController.swift */,
 				BC3246EF1AF73F6C00CC72BA /* ComposeViewController.swift */,
 				BC3246ED1AF6FED900CC72BA /* TweetCell.swift */,
 				BC3246C61AF45B6400CC72BA /* Images.xcassets */,
 				BC3246C81AF45B6400CC72BA /* LaunchScreen.xib */,
 				BC3246BD1AF45B6400CC72BA /* Supporting Files */,
 				BC3246DF1AF45BE900CC72BA /* Twitter-Bridging-Header.h */,
-				BC3246F11AF74F2200CC72BA /* TweetDetailViewController.swift */,
 			);
 			path = Twitter;
 			sourceTree = "<group>";
