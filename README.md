@@ -27,4 +27,5 @@ Time spent: `12`
 
 ### Walkthrough
 
-![Video Walkthrough](...)
+![Video
+Walkthrough](https://github.com/mattjcline/swift-tweets/blob/master/twitter-stories.gif?raw=true)
