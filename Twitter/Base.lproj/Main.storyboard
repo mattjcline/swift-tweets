@@ -159,7 +159,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tweets" id="efh-MV-uSm">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="C4P-KA-wsI"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="C4P-KA-wsI">
+                            <connections>
+                                <action selector="onLogout:" destination="W0H-qe-FuD" id="jyt-8i-YuB"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Compose" id="oAa-8K-FWI">
                             <connections>
                                 <segue destination="85x-BN-08w" kind="modal" id="zxw-OP-dB9"/>
