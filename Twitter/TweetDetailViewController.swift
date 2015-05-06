@@ -38,27 +38,17 @@ class TweetDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onReplyButtonPressed(sender: AnyObject) {
-        
-    }
-    
-    @IBAction func onRetweetButtonPressed(sender: AnyObject) {
-        
-    }
-    
     @IBAction func onFavoriteButtonPressed(sender: AnyObject) {
         if let tweet = tweet {
             if tweet.favorited {
-                let params = ["id": tweet.id!]
-                TwitterClient.sharedInstance.unfavoritetweet(params, completion: { (tweet, error) -> () in
+                TwitterClient.sharedInstance.unfavoritetweet(tweet.id!, completion: { (tweet, error) -> () in
                     if let tweet = tweet {
                         self.tweet!.favoritesCount = tweet.favoritesCount
                         self.tweet!.favorited = tweet.favorited
                     }
                 })
             } else {
-                let params = ["id": tweet.id!]
-                TwitterClient.sharedInstance.favoriteTweet(params, completion: { (tweet, error) -> () in
+                TwitterClient.sharedInstance.favoriteTweet(tweet.id!, completion: { (tweet, error) -> () in
                     if let tweet = tweet {
                         self.tweet!.favoritesCount = tweet.favoritesCount
                         self.tweet!.favorited = tweet.favorited
@@ -87,15 +77,15 @@ class TweetDetailViewController: UIViewController {
         }
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let navigationController = segue.destinationViewController as? UINavigationController {
+            if let composeViewController = navigationController.topViewController as? ComposeViewController {
+                composeViewController.replyTo = self.tweet
+            }
+        }
     }
-    */
 
 }

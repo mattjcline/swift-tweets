@@ -88,17 +88,20 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             }
         )}
     
-    func favoriteTweet(params: [String: Int]?, completion: (tweet: Tweet?, error: NSError?) -> () ){
+    func favoriteTweet(id: Int, completion: (tweet: Tweet?, error: NSError?) -> () ){
+        let params = ["id": id]
         POST("1.1/favorites/create.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             var tweet = Tweet(dictionary: response as! NSDictionary)
             completion(tweet: tweet, error: nil)
             }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                 println("error favoriting")
+                println(error)
                 completion(tweet: nil, error: error)
             }
         )}
     
-    func unfavoritetweet(params: [String: Int]?, completion: (tweet: Tweet?, error: NSError?) -> () ){
+    func unfavoritetweet(id: Int, completion: (tweet: Tweet?, error: NSError?) -> () ){
+        let params = ["id": id]
         POST("1.1/favorites/destroy.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             var tweet = Tweet(dictionary: response as! NSDictionary)
             completion(tweet: tweet, error: nil)
@@ -110,10 +113,21 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     
     
     func retweetTweet(id: Int, params: NSDictionary?, completion: (error: NSError?) -> () ){
+        let params = ["id": id]
         POST("1.1/statuses/retweet/\(id).json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             completion(error: nil)
             }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                 println("error retweeting")
+                completion(error: error)
+            }
+        )}
+
+    func unRetweetTweet(id: Int, params: NSDictionary?, completion: (error: NSError?) -> () ){
+        let params = ["id": id]
+        POST("1.1/statuses/destroy/\(id).json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            completion(error: nil)
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                println("error un-retweeting")
                 completion(error: error)
             }
         )}

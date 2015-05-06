@@ -12,10 +12,15 @@ class ComposeViewController: UIViewController {
     
     @IBOutlet weak var compositionTextView: UITextView!
     
+    var params: NSMutableDictionary!
+    var replyTo: Tweet?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if let replyTo = replyTo {
+            compositionTextView.text = "@\(replyTo.user!.screenname!)"
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,12 +29,19 @@ class ComposeViewController: UIViewController {
     }
     
     @IBAction func onCancel(sender: AnyObject) {
+        replyTo = nil
         dismissComposeModal()
     }
     
-    @IBAction func onTweet(sender: AnyObject) {
-        var params = NSDictionary()
+    @IBAction func onTweetButtonPressed(sender: AnyObject) {
         params = ["status": compositionTextView.text!]
+        
+        if let tweet = replyTo, user = replyTo!.user {
+            params.setValue("\(tweet.id!)", forKey: "in_reply_to_status_id")
+            params.setValue("\(user.id!)", forKey: "in_reply_to_user_id")
+            println("replied to ID: \(tweet.id!)\nreplied to user ID: \(user.id!)")
+        }
+        
         TwitterClient.sharedInstance.postTweet(params, completion: { (error) -> () in
             self.dismissComposeModal()
         })
