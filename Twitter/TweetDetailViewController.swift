@@ -14,7 +14,9 @@ class TweetDetailViewController: UIViewController {
     static let retweetIcon = UIImage(named: "retweet.png")
     static let favoriteIcon = UIImage(named: "favorite.png")
     
-    @IBOutlet weak var profileImageView: UIImageView!
+
+
+    @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tweetBodyLabel: UILabel!
@@ -65,10 +67,9 @@ class TweetDetailViewController: UIViewController {
             self.createdAtLabel.text = tweet.createdAtString
             self.fullNameLabel.text = user.name
             self.usernameLabel.text = "@\(user.screenname!)"
-            self.profileImageView.setImageWithURL(NSURL(string: user.profileImageUrl!))
-            self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.height / 2
-            self.profileImageView.clipsToBounds = true
-
+            self.profileImageButton.setBackgroundImageForState(.Normal, withURL: NSURL(string: user.profileImageUrl!))
+            self.profileImageButton.layer.cornerRadius = self.profileImageButton.frame.size.height / 2
+            self.profileImageButton.clipsToBounds = true
             self.replyButton.setImage(TweetDetailViewController.replyIcon, forState: .Normal)
             self.retweetButton.setImage(TweetDetailViewController.retweetIcon, forState: .Normal)
             self.favoriteButton.setImage(TweetDetailViewController.favoriteIcon, forState: .Normal)
@@ -81,9 +82,21 @@ class TweetDetailViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let navigationController = segue.destinationViewController as? UINavigationController {
-            if let composeViewController = navigationController.topViewController as? ComposeViewController {
+        if let nc = segue.destinationViewController as? UINavigationController {
+            var composeViewController = nc.topViewController as? ComposeViewController
+            var profileViewController = nc.topViewController as? ProfileViewController
+
+            // reply
+            if let composeViewController = composeViewController {
+                println("compose view")
                 composeViewController.replyTo = self.tweet
+            }
+        
+            // profile
+            if let profileViewController = profileViewController {
+                profileViewController.user = self.tweet!.user
+                println("profile view")
+                println(self.tweet!.user)
             }
         }
     }

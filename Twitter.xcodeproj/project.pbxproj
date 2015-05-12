@@ -21,6 +21,7 @@
 		BC3246EE1AF6FED900CC72BA /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3246ED1AF6FED900CC72BA /* TweetCell.swift */; };
 		BC3246F01AF73F6C00CC72BA /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3246EF1AF73F6C00CC72BA /* ComposeViewController.swift */; };
 		BC3246F21AF74F2200CC72BA /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3246F11AF74F2200CC72BA /* TweetDetailViewController.swift */; };
+		BC80EDAA1AFD1349001D3CC4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80EDA91AFD1349001D3CC4 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		BC3246ED1AF6FED900CC72BA /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		BC3246EF1AF73F6C00CC72BA /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		BC3246F11AF74F2200CC72BA /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
+		BC80EDA91AFD1349001D3CC4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FDBA83FA7B8F10C4397ED0C7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				BC3246EB1AF6E82000CC72BA /* TweetsViewController.swift */,
 				BC3246F11AF74F2200CC72BA /* TweetDetailViewController.swift */,
 				BC3246EF1AF73F6C00CC72BA /* ComposeViewController.swift */,
+				BC80EDA91AFD1349001D3CC4 /* ProfileViewController.swift */,
 				BC3246ED1AF6FED900CC72BA /* TweetCell.swift */,
 				BC3246C61AF45B6400CC72BA /* Images.xcassets */,
 				BC3246C81AF45B6400CC72BA /* LaunchScreen.xib */,
@@ -312,6 +315,7 @@
 			files = (
 				BC3246E81AF6D4D400CC72BA /* User.swift in Sources */,
 				BC3246EE1AF6FED900CC72BA /* TweetCell.swift in Sources */,
+				BC80EDAA1AFD1349001D3CC4 /* ProfileViewController.swift in Sources */,
 				BC3246F21AF74F2200CC72BA /* TweetDetailViewController.swift in Sources */,
 				BC3246EA1AF6D4E700CC72BA /* Tweet.swift in Sources */,
 				BC3246F01AF73F6C00CC72BA /* ComposeViewController.swift in Sources */,
